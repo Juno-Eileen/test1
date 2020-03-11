@@ -6,3 +6,6 @@ from .models import WeChatUser,Status,User,Reply
 # Create your views here.
 def home(request):
         return render(request,"homepage.html")
+def show_user(request):
+        user = WeChatUser.objects.get(user = request.user)
+            return render(request,'user.html',{"u":user})
